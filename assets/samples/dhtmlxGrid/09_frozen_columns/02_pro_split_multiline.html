@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!--pro-->
+<html>
+<head>
+	<title>Split and multiline</title>
+	
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<link rel="stylesheet" type="text/css" href="../../../codebase/dhtmlx.css"/>
+	<script src="../../../codebase/dhtmlx.js"></script>
+</head>
+
+<body>
+	<h1>Split and multiline</h1>
+    <p>You are allowed to display grid rows in multiline mode. In the sample below both multiline and split modes are enabled.</p>
+	<div id="gridbox" style="width:600px;height:270px;background-color:white;"></div>
+	
+<script>
+  	mygrid = new dhtmlXGridObject('gridbox');
+	mygrid.setImagePath("../../../codebase/imgs/");
+	mygrid.setHeader("Sales,Book Title,Author,Price,In Store,Shipping,Bestseller,Date of Publication");
+	mygrid.setInitWidths("50,80,100,80,80,80,80,200")
+	mygrid.setColAlign("right,left,left,right,center,left,center,center")
+	mygrid.setColTypes("dyn,ed,ed,price,ch,co,ra,ro");
+    mygrid.getCombo(5).put(2,2);
+	mygrid.enableMultiline(true)
+	mygrid.setColSorting("int,str,str,int,str,str,str,date")
+	
+	mygrid.init();
+    mygrid.splitAt(2);
+	mygrid.loadXML("../common/grid_ml.xml");
+
+</script>
+
+</body>
+</html>
+

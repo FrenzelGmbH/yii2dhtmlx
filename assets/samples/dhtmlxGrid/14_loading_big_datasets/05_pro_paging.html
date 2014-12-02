@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--pro-->
+<html>
+<head>
+	<title>Paginal Output</title>
+	
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<link rel="stylesheet" type="text/css" href="../../../codebase/dhtmlx.css"/>
+	<script src="../../../codebase/dhtmlx.js"></script>
+</head>
+
+<script>
+	var mygrid;
+	function doOnLoad(){
+		mygrid = new dhtmlXGridObject('gridbox');
+		mygrid.setImagePath("../../../codebase/imgs/");
+		mygrid.setHeader("Column A, Column B");
+		mygrid.setInitWidths("300,*")
+		mygrid.setColAlign("right,left")
+		mygrid.setColTypes("ro,ed");
+		mygrid.setColSorting("str,str")
+		mygrid.enablePaging(true,10,3,"pagingArea",true,"recinfoArea");
+		mygrid.init();
+		
+		mygrid.loadXML("../common/dynscroll.xml");
+	}
+</script>
+<body onLoad="doOnLoad()">
+	
+	<h1>Paginal Output</h1>
+	<p>	
+		In the sample below number of rows per page is set to 10 and number of pages per group is set to 3:<br>
+		
+	</p>
+	<table width="500">
+		<tr>
+			<td id="recinfoArea"></td>
+		</tr>
+		<tr>
+			<td>
+				<div id="gridbox" style="widht:100%; height:150px; background-color:white;overflow:hidden"></div>
+			</td>
+		</tr>
+		<tr>
+			<td id="pagingArea"></td>
+		</tr>
+	</table>
+
+</body>
+</html>

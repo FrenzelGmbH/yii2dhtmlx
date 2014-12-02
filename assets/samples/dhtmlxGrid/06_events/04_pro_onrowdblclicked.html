@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--pro-->
+<html>
+<head>
+	<title>Event Handler for onRowDblClicked</title>
+	
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<link rel="stylesheet" type="text/css" href="../../../codebase/dhtmlx.css"/>
+	<script src="../../../codebase/dhtmlx.js"></script>
+</head>
+
+<body>
+	
+	<h1>Event Handler for onRowDblClicked</h1>
+	<p>You can set handler for onRowDblClicked event:</p>
+	<div id="gridbox" style="width:600px;height:270px;background-color:white;"></div>
+
+<script>
+	function doOnRowDblClicked(rowId){
+			return confirm("Row with ID "+ rowId + " was double clicked. Do you want to proceed?")
+	}
+    mygrid = new dhtmlXGridObject('gridbox');
+	mygrid.setImagePath("../../../codebase/imgs/");
+	mygrid.setHeader("Sales,Book Title,Author,Price,In Store,Shipping,Bestseller,Date of Publication");
+	mygrid.setInitWidths("50,150,100,80,80,80,80,200")
+	mygrid.setColAlign("right,left,left,right,center,left,center,center")
+	mygrid.setColTypes("dyn,ed,ed,price,ch,co,ra,ro");
+    mygrid.getCombo(5).put(2,2);
+	
+	mygrid.attachEvent("onRowDblClicked",doOnRowDblClicked);
+	mygrid.init();
+	
+	mygrid.loadXML("../common/grid.xml");
+</script>
+
+</body>
+</html>

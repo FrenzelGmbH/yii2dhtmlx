@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Initialize object on page</title>
+	
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<link rel="stylesheet" type="text/css" href="../../../codebase/dhtmlx.css"/>
+	<script src="../../../codebase/dhtmlx.js"></script>
+</head>
+
+<body>
+	<h1>Initialize object on page</h1>
+	<p>You can place this JavaScript grid anywhere on your web page, attaching the grid 
+	to any object.<br>
+	 Set up grid parameters to determine the look of the grid. 
+	 Specify whether the grid items will be loaded from XML. dhtmlxGrid uses
+	 AJAX for fast and flexible data loading.</p>
+		<div id="gridbox" style="width:350px;height:250px;background-color:white;overflow:hidden"></div>
+<br>
+<script>
+	mygrid = new dhtmlXGridObject('gridbox');
+	mygrid.setImagePath("../../../codebase/imgs/");
+	mygrid.setHeader("Column A, Column B");
+	mygrid.setInitWidths("100,250")
+	mygrid.setColAlign("right,left")
+	mygrid.setColTypes("ro,ed");
+	mygrid.setColSorting("int,str")
+	mygrid.enableMultiselect(true)
+	mygrid.init();
+	
+	mygrid.loadXML("../common/grid.xml");
+</script>
+
+</body>
+</html>

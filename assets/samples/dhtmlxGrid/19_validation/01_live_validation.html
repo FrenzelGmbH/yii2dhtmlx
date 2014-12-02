@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Live validation</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<link rel="stylesheet" type="text/css" href="../../../codebase/dhtmlx.css"/>
+	<script src="../../../codebase/dhtmlx.js"></script>
+</head>
+
+<body>
+	
+
+				<div id="gridbox" style="width:350px;height:250px;background-color:white;overflow:hidden"></div>
+
+<script>
+	mygrid = new dhtmlXGridObject('gridbox');
+	mygrid.setImagePath('../../../codebase/imgs/');
+	mygrid.setHeader("Column A, Column B");
+	mygrid.setInitWidths("100,250")
+	mygrid.setColAlign("right,left")
+	mygrid.setColTypes("ed,ed");
+	mygrid.enableValidation(true,true)
+	mygrid.setColValidators("NotEmpty,ValidEmail");
+	mygrid.setColSorting("int,str")
+	mygrid.enableMultiselect(true)
+	mygrid.init();
+	
+	mygrid.loadXML("../common/grid.xml");
+</script>
+
+</body>
+</html>
